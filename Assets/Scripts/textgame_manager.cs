@@ -10,17 +10,18 @@ public class textgame_manager : MonoBehaviour
     public int hp_value;
     public int snt_value;
     public TextMeshProUGUI hptxt_value, snttxt_value, storytxt_value;
-    public string startOfstory;
-    public GameObject lvl1_choices;
+    public string startOfstory, storytext;
+    public GameObject menu, stats, lvl1_choices, lvl2_choices;
 
     // Start is called before the first frame update
     void Start()
     {
         hp_value = 10;
         snt_value = 10;
-        startOfstory = "You enter the CIIT Interweave building. Immediately the atmosphere gets hit by a gust of bone chilling wind. You feel a cold presence grasp the very fibers of your body." +
-                       "A big looming shadow comes into view as you slowly turn your head from the door to the reception desk. This being is easily twice your size and thrice your girth. Shakily, you look" +
-                       "up to see your assailant, sweat dripping down your eyelids. The hairs on your body start to rise as you slowly take in its form and- Oh, it's just the aircon.";
+        startOfstory = "";
+        lvl1_choices.SetActive(false);
+        lvl2_choices.SetActive(false);
+        stats.SetActive(false);
     }
 
     // Update is called once per frame
@@ -31,9 +32,24 @@ public class textgame_manager : MonoBehaviour
         storytxt_value.text = startOfstory;
     }
 
+ 
+
+    public void exit()
+    {
+        Application.Quit();
+    }
+
+    public void start()
+    {
+        lvl1_choices.SetActive(true);
+        menu.SetActive(false);
+        stats.SetActive(true);
+    }
+
+    //Scene 1 Buttons
     public void go_down()
     {
-        hp_value -= 10;
+        snt_value -= 10;
         startOfstory = "You went down the stairs. But there was no downstairs... where are you?";
         lvl1_choices.SetActive(false);
     }
@@ -41,8 +57,9 @@ public class textgame_manager : MonoBehaviour
     public void go_up()
     {
         hp_value -= 0;
-        startOfstory = "You went upstairs, the security guard welcomes you and points to two doors: the registrar and the finance office";
+        startOfstory = "You went upstairs. There's 2 rooms: to your left is a library, and to the right is a cafe.";
         lvl1_choices.SetActive(false);
+        lvl1_choices.SetActive(true);
     }
 
     public void go_punch()
@@ -50,5 +67,8 @@ public class textgame_manager : MonoBehaviour
         snt_value -= 5;
         startOfstory = "You punch the aircon unit and now everyone is looking at you like a lunatic. Nice job idiot.";
         lvl1_choices.SetActive(false);
+        lvl2_choices.SetActive(true);
     }
+
+    //Scene 2 Buttons
 }
