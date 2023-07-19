@@ -76,11 +76,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2816}
     - Class: 114
-      Script: {instanceID: 3750}
+      Script: {instanceID: 3752}
     - Class: 114
-      Script: {instanceID: 3860}
+      Script: {instanceID: 3862}
     - Class: 114
-      Script: {instanceID: 4126}
+      Script: {instanceID: 4128}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -314,7 +314,7 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
-      Hash: aa6fa640822017c3c7fd43ea4cdbc03c
+      Hash: 510a81e82231915a0899c1358144bd13
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: textgame_manager
@@ -753,4 +753,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/MainScene.unity
-  playerPath: C:/Users/STUDENT/Documents/GitHub/New folder/CIIT Enrollment Adventure!.exe
+  playerPath: C:/Users/AnamGGSS/Documents/GitHub/Bilds/CIIT Enrollment Adventure!.exe

@@ -15,8 +15,8 @@ public class textgame_manager : MonoBehaviour
     public TextMeshProUGUI hptxt_value, snttxt_value, storytxt_value, titletxt_value, endtxt_value, endtitle_value;
     public string startOfstory, storytext, temptxt, titletxt, endtext, endtitle;
     public GameObject menu, stats, levels, scene1, scene2, scene3, scene4, scene5,
-                                   q1_choices, q2_choices, q3_choices, q4_choices,
-                                   conts, cont_1, cont_2,cont_3, endings,
+                                   q1_choices, q2_choices, q3_choices, q4_choices, q1v,
+                                   conts, cont_1, cont_2,cont_3, cont_4, cont_5, cont_6, endings,
                                    sceneimg, end1, end2, end3, end4, end5;
 
 
@@ -103,7 +103,7 @@ public class textgame_manager : MonoBehaviour
         snt_value -= 10;
         startOfstory = "";
         scene1.SetActive(false);
-        end4.SetActive(true);
+        end4    .SetActive(true);
     }
 
     public void go_up()
@@ -196,7 +196,7 @@ public class textgame_manager : MonoBehaviour
     public void look_at()
     {
         hp_value -= 0;
-        snt_value -= 10;
+        snt_value -= 5;
         startOfstory = "You raise your head and look at the mass. A rush of vibrant and blinding colors assault your eyes as the appendages of the amalgamation slowly" +
                        " clatter on the steps toward you. You scream as the mass touches you, diving in the middle before finally passing you. You run up toward the next" +
                        " floor. You hear one of the students say 'What the hell's their problem?'";
@@ -233,13 +233,47 @@ public class textgame_manager : MonoBehaviour
     //Scene 4 Buttons
     public void s4_cont()
     {
-        titletxt = "Test Room";
-        //endtext = temptxt;
+        titletxt = "";
+        endtext = "Watch and analyze the following video then answer the question afterwards";
+        endtitle = "Question 1";
+        startOfstory = "";
+        sceneimg.SetActive(false);
         cont_3.SetActive(false);
-        scene4.SetActive(true);
+        cont_6.SetActive(true);
+        scene4.SetActive(false);
 
     }
 
+    public void s4_q1cont()
+    {
+        endtext = "";
+        scene5.SetActive(true);
+        q1v.SetActive(true);
+        cont_6.SetActive(false);
+        StartCoroutine(q1cour());
+
+       
+    }
+
+    IEnumerator q1cour()
+    {
+        yield return new WaitForSecondsRealtime(3f);
+        q1v.SetActive(false);
+        q1_choices.SetActive(true);
+        endtxt_value.fontSize = 72;
+        endtext = "What color were her shoes hm?";
+        q1_choices.SetActive(true);
+
+    }
+
+    public void s4_endcont()
+    {
+        
+        cont_3.SetActive(false);
+        end3.SetActive(true);
+        
+    }
+   
 
     public void take_test()
     {
@@ -247,6 +281,8 @@ public class textgame_manager : MonoBehaviour
         snt_value -= 0;
         startOfstory = "";
         endtext = "Very well. There will be 4 questions, each with 3 choices. Pick the right ones to pass, pick the wrong ones and...";
+        titletxt = "";
+        endtitle = "Test Room";
         sceneimg.SetActive(false);
         scene4.SetActive(false);
         cont_3.SetActive(true);
@@ -257,8 +293,7 @@ public class textgame_manager : MonoBehaviour
         hp_value -= 0;
         snt_value -= 0;
         startOfstory = " ";
-        endtext = "A mixture of smirks and grimaces flood the faces of the entities in the room. A few amused (and not so amused) whispers" +
-            " can be heard from among the council. The dean approaches you with a contract...";
+        endtext = ".... Get out";
         scene4.SetActive(false);
         scene5.SetActive(true);
     }
@@ -270,11 +305,98 @@ public class textgame_manager : MonoBehaviour
         startOfstory = "";
         endtext = "A mixture of smirks and grimaces flood the faces of the entities in the room. A few amused (and not so amused) whispers" +
             " can be heard from among the council. The dean approaches you with a contract...";
+        endtitle = "Admissions Office";
+        titletxt = "";
+        sceneimg.SetActive(false);
         scene4.SetActive(false);
-        end3.SetActive(true);
+        cont_5.SetActive(true);
     }
 
-    //Scene 5 Buttons
+    //Scene 5 Buttons (Test Questions)
+
+    //q1
+    public void blue()
+    {
+        hp_value -= 2;
+        snt_value -= 0;
+        endtitle = "Question 2";
+        endtxt_value.fontSize = 50;
+        endtext = "String theory is a physics theory that suggests that the universe is made up of tiny, vibrating strings of energy. This theory attempts to reconcile the theories " +
+            "of general relativity and quantum mechanics, and could provide a more comprehensive description of the universe and its basic components. Who lives in a Pineapple under the Sea?";
+        q1_choices.SetActive(false);
+        q2_choices.SetActive(true);
+    }
+
+    public void red()
+    {
+        hp_value -= 0;
+        snt_value -= 2;
+        endtitle = "Question 2";
+        endtxt_value.fontSize = 50;
+        endtext = "String theory is a physics theory that suggests that the universe is made up of tiny, vibrating strings of energy. This theory attempts to reconcile the theories " +
+            "of general relativity and quantum mechanics, and could provide a more comprehensive description of the universe and its basic components. Who lives in a Pineapple under the Sea?";
+        q1_choices.SetActive(false);
+        q2_choices.SetActive(true);
+    }
+
+    public void yellow()
+    {
+        hp_value -= 0;
+        snt_value -= 0;
+        endtitle = "Question 2";
+        endtxt_value.fontSize = 50;
+        endtext = "String theory is a physics theory that suggests that the universe is made up of tiny, vibrating strings of energy. This theory attempts to reconcile the theories " +
+            "of general relativity and quantum mechanics, and could provide a more comprehensive description of the universe and its basic components. Who lives in a Pineapple under the Sea?";
+        q1_choices.SetActive(false);
+        q2_choices.SetActive(true);
+    }
+
+    //q2
+
+    public void mickey()
+    {
+        hp_value -= 2;
+        snt_value -= 0;
+        endtitle = "Question 3";
+        endtxt_value.fontSize = 50;
+        endtext = "";
+        q2_choices.SetActive(false);
+        q3_choices.SetActive(true);
+    }
+
+    public void spongebob()
+    {
+        hp_value -= 0;
+        snt_value -= 0;
+        endtitle = "Question 3";
+        endtxt_value.fontSize = 50;
+        endtext = "";
+        q2_choices.SetActive(false);
+        q3_choices.SetActive(true);
+    }
+
+    public void juan()
+    {
+        hp_value -= 0;
+        snt_value -= 2;
+        endtitle = "Question 3";
+        endtxt_value.fontSize = 50;
+        endtext = "";
+        q2_choices.SetActive(false);
+        q3_choices.SetActive(true);
+    }
+
+    //q3
+
+    public void answer()
+    {
+
+    }
+
+    public void decline()
+    {
+
+    }
 
 
 
