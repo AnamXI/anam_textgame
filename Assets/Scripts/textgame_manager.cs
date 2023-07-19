@@ -193,6 +193,13 @@ public class textgame_manager : MonoBehaviour
 
     }
 
+    public void s3_endcont()
+    {
+        end4.SetActive(true);
+        endtext = "";
+        cont_4.SetActive(false);
+    }
+
     public void look_at()
     {
         hp_value -= 0;
@@ -225,9 +232,11 @@ public class textgame_manager : MonoBehaviour
         endtext = "You interact with the mass. Your eyes are filled with blindly bright colors as cacophony of chattering sounds enter your ears and echo " +
             "around your brain like wave of pirhannas chewing their way through. You find yourself moving along with the mass going down, and down, and down the long" +
             "stairway until the noise suddenly stops...";
+        titletxt = " ";
+        endtitle = "Hello";
         sceneimg.SetActive(false);
         scene3.SetActive(false);
-        cont_2.SetActive(true);
+        cont_4.SetActive(true);
     }
 
     //Scene 4 Buttons
@@ -390,13 +399,17 @@ public class textgame_manager : MonoBehaviour
 
     public void answer()
     {
-
+        q3_choices.SetActive(false);
+        q4_choices.SetActive(true);
     }
 
     public void decline()
     {
-
+        q3_choices.SetActive(false);
+        end4.SetActive(true);
     }
+
+    //q4
 
 
 
